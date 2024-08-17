@@ -1,0 +1,26 @@
+body{
+  margin: 0;  
+  /* padding: 0; */
+  /* text-align: left; */
+}
+h1{
+  margin: 50px;
+}
+
+table{
+  text-align: center;
+  margin: 50px;
+}
+
+th{
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border: 2px solid #000;
+
+}
+
+td{
+  padding: 20px;
+  border: 2px solid black;
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="https://www.example.org/SportsSchema"
+  xmlns:tns="https://www.example.org/SportsSchema"
+  elementFormDefault="qualified">
+
+  <xs:element name="SPORTS_DOMAIN" type="tns:sportstype"/>
+  <xs:complexType name="sportstype">
+    <xs:sequence>
+      <xs:element name="SPORTS_TYPE" type="tns:sporttype" maxOccurs="unbounded"></xs:element>
+    
+      <xs:element name="FIELD_DOMAIN" type="tns:fieldtype" maxOccurs="unbounded"></xs:element>
+
+      <xs:element name="HOST_TYPE" type="tns:hosttype" maxOccurs="unbounded"></xs:element>
+
+      <xs:element name="BOOKING_TYPE" type="tns:bookingtype" maxOccurs="unbounded"></xs:element>
+  
+      <xs:element name="PLAYER_TYPE" type="tns:playertype" maxOccurs="unbounded"></xs:element>
+
+      <xs:element name="SELF_EXERCISE_TYPE" type="tns:self_exercise_type" maxOccurs="unbounded"></xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+<xs:complexType name="sporttype" >
+
+  <xs:sequence>
+    <xs:element name="SNAME" type="xs:string" ></xs:element>
+    <xs:element name="EQUIPMENTS" type="xs:string"></xs:element>
+    <xs:element name="GUIDELINES" type="xs:string"></xs:element>
+  </xs:sequence>
+  
+  <xs:attribute name="SID" type="xs:ID" use="required"></xs:attribute>
+
+</xs:complexType>
+
+<xs:complexType name="fieldtype">
+  <xs:sequence>
+    <xs:element name="FNAME" type="xs:string"></xs:element>
+    <xs:element name="MINIMUM_PLAYERS">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="10"></xs:minInclusive>
+          <xs:maxInclusive value="22"></xs:maxInclusive>
+        </xs:restriction>      
+      </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="TOTAL_PLAYERS" type="xs:integer"></xs:element>
+    <xs:element name="DIMENSION" type="xs:string"></xs:element>
+    <xs:element name="BASE-PRICE" type="xs:integer"></xs:element>
+    <xs:element name="PRICE" type="xs:integer"></xs:element>
+    <xs:element name="LOCATION" type="xs:string"></xs:element>
+  </xs:sequence>
+
+  <xs:attribute name="FID" type="xs:ID" use="required"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="hosttype">
+  <xs:sequence>
+    <xs:element name="hostname" type="xs:string"></xs:element>
+    <xs:element name="phone_number" type="xs:string"></xs:element>
+  </xs:sequence>
+
+  <xs:attribute name="HID" type="xs:ID" use="required"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="bookingtype">
+  <xs:sequence>
+    <xs:element name="DATE" type="xs:string" ></xs:element>
+    <xs:element name="STIME" type="xs:string" ></xs:element>
+    <xs:element name="ETIME" type="xs:string" ></xs:element>
+    <xs:element name="BASEPRICE" type="xs:string" ></xs:element>
+    <xs:element name="AMOUNT" type="xs:string" ></xs:element>
+  </xs:sequence>
+
+  <xs:attribute name="BID" type="xs:ID" use="required"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="playertype">
+  <xs:sequence>
+    <xs:element name="PNAME" type="xs:string"></xs:element>
+    <xs:element name="AGE" type="xs:integer"></xs:element>
+  </xs:sequence>
+
+  <xs:attribute name="PID" type="xs:ID" use="required"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="self_exercise_type">
+  <xs:sequence>
+    <xs:element name="EXERCISE_NAME" type="xs:string"></xs:element>
+    <xs:element name="PRECAUTIONS" type="xs:string">
+
+    </xs:element>
+    <xs:element name="DURATION" type="xs:string"></xs:element>
+    <xs:element name="SET">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="3"></xs:minInclusive>
+          <xs:maxInclusive value="5"></xs:maxInclusive>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:element>
+  </xs:sequence>
+  <xs:attribute name="SEID" type="xs:ID" use="required"></xs:attribute>
+</xs:complexType>
+
+
+</xs:schema>
